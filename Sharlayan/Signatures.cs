@@ -47,7 +47,17 @@ namespace Sharlayan {
 
         public const string ZoneInformationKey = "ZONEINFO";
 
-        public static IEnumerable<Signature> Resolve(ProcessModel processModel, string patchVersion = "latest") {
+		// Own
+
+		public const string PerformanceStatusKey = "PERFSTATUS";
+
+		public const string CharacterIdKey = "CHARID";
+
+		public const string ChatInputKey = "CHATINPUT";
+
+		public const string WorldKey = "WORLD";
+
+		public static IEnumerable<Signature> Resolve(ProcessModel processModel, string patchVersion = "latest") {
             return APIHelper.GetSignatures(processModel, patchVersion);
         }
     }

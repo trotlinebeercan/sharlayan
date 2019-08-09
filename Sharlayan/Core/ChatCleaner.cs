@@ -21,8 +21,9 @@ namespace Sharlayan.Core {
     using NLog;
 
     using Sharlayan.Extensions;
+	using Sharlayan.Utilities;
 
-    internal class ChatCleaner : INotifyPropertyChanged {
+	internal class ChatCleaner : INotifyPropertyChanged {
         private const RegexOptions DefaultOptions = RegexOptions.Compiled | RegexOptions.ExplicitCapture;
 
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
@@ -95,6 +96,7 @@ namespace Sharlayan.Core {
                             var limit = length - 1;
                             if (length > 1) {
                                 x = x + 3;
+								/*
                                 autoTranslateList.Add(Convert.ToByte('['));
                                 byte[] translated = new byte[limit];
                                 Buffer.BlockCopy(bytes, x, translated, 0, limit);
@@ -104,6 +106,7 @@ namespace Sharlayan.Core {
 
                                 autoTranslateList.Add(Convert.ToByte(']'));
                                 var aCheckStr = string.Empty;
+								Console.WriteLine(string.Format("AUTO TRANSLATE: {0}", Encoding.UTF8.GetString(autoTranslateList.ToArray())));
 
                                 // var checkedAt = autoTranslateList.GetRange(1, autoTranslateList.Count - 1).ToArray();
                                 if (string.IsNullOrWhiteSpace(aCheckStr)) {
@@ -114,6 +117,24 @@ namespace Sharlayan.Core {
                                 }
 
                                 autoTranslateList.Clear();
+								*/
+								byte[] translated = new byte[limit];
+								Buffer.BlockCopy(bytes, x, translated, 0, limit);
+								Array.Reverse(translated);
+
+								ulong id = 0;
+								if(limit == 2) {
+									id = Sharlayan.Utilities.BitConverter.TryToUInt16(translated, 0);
+								}
+								if(limit == 4) {
+									id = Sharlayan.Utilities.BitConverter.TryToUInt32(translated, 0);
+								}
+								if(id != 0) {
+									if(CompletionLookup.TryGetCompletion(id, out string completion)) {
+										string c = string.Format("{{{0}}}", completion);
+										newList.AddRange(Encoding.UTF8.GetBytes(c));
+									}
+								}
                                 x += limit;
                             }
                             else {

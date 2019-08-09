@@ -17,7 +17,9 @@ namespace Sharlayan {
     using Sharlayan.Core.Enums;
 
     public static partial class Reader {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+		public static string JsonPath = ".";
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public static bool CanGetAgroEntities() {
             var canRead = Scanner.Instance.Locations.ContainsKey(Signatures.AgroCountKey) && Scanner.Instance.Locations.ContainsKey(Signatures.AgroMapKey);
