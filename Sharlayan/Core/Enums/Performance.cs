@@ -33,7 +33,12 @@ namespace Sharlayan.Core.Enums {
 			Bongo = 11,
 			BassDrum = 12,
 			SnareDrum = 13,
-			Cymbal = 14
+			Cymbal = 14,
+			Trumpet = 15,
+			Trombone = 16,
+			Tuba = 17,
+			Horn = 18,
+			Saxophone = 19,
 		}
 	}
 }

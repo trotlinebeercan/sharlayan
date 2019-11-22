@@ -41,7 +41,8 @@ namespace Sharlayan.Utilities {
                 entry.NPCID1 = BitConverter.TryToUInt32(source, MemoryHandler.Instance.Structures.ActorItem.NPCID1);
                 entry.NPCID2 = BitConverter.TryToUInt32(source, MemoryHandler.Instance.Structures.ActorItem.NPCID2);
                 entry.OwnerID = BitConverter.TryToUInt32(source, MemoryHandler.Instance.Structures.ActorItem.OwnerID);
-                entry.TypeID = source[MemoryHandler.Instance.Structures.ActorItem.Type];
+                entry.PerformanceID = source[MemoryHandler.Instance.Structures.ActorItem.PerformanceID];
+				entry.TypeID = source[MemoryHandler.Instance.Structures.ActorItem.Type];
                 entry.Type = (Actor.Type) entry.TypeID;
 
                 entry.TargetTypeID = source[MemoryHandler.Instance.Structures.ActorItem.TargetType];

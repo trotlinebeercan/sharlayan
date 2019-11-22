@@ -105,6 +105,8 @@ namespace Sharlayan.Core {
 
         public uint OwnerID { get; set; }
 
+		public uint PerformanceID { get; set; }
+
         public byte Race { get; set; }
 
         public Actor.Sex Sex { get; set; }

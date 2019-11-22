@@ -94,6 +94,8 @@ namespace Sharlayan.Models.Structures {
 
         public int OwnerID { get; set; }
 
+		public int PerformanceID { get; set; }
+
         public int SourceSize { get; set; }
 
         public int Status { get; set; }

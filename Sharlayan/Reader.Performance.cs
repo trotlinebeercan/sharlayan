@@ -47,14 +47,14 @@ namespace Sharlayan {
 				for(int i = 0; i < numEntries; i++) {
 					int offset = (i * entrySize);
 
-					float animation = BitConverter.TryToSingle(performanceData, 0);
-					byte unknown1 = performanceData[4];
-					byte id = performanceData[5];
-					byte variant = performanceData[6];
-					byte type = performanceData[7];
-					byte status = performanceData[8];
-					byte instrument = performanceData[9];
-					int unknown2 = BitConverter.TryToInt16(performanceData, 10);
+					float animation = BitConverter.TryToSingle(performanceData, offset+0);
+					byte id = performanceData[offset + 4];
+					byte unknown1 = performanceData[offset + 5];
+					byte variant = performanceData[offset + 6]; // Animation (hand to left or right)
+					byte type = performanceData[offset + 7];
+					byte status = performanceData[offset + 8];
+					byte instrument = performanceData[offset + 9];
+					int unknown2 = BitConverter.TryToInt16(performanceData, offset + 10);
 
 					if(id >= 0 && id <= 99) {
 						PerformanceItem item = new PerformanceItem();
