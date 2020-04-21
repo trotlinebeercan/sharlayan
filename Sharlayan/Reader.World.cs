@@ -21,7 +21,7 @@ namespace Sharlayan {
 
     public static partial class Reader {
         public static bool CanGetWorld() {
-            var canRead = Scanner.Instance.Locations.ContainsKey(Signatures.CharacterMapKey) && Scanner.Instance.Locations.ContainsKey(Signatures.TargetKey);
+            var canRead = Scanner.Instance.Locations.ContainsKey(Signatures.WorldKey);
             if (canRead) {
                 // OTHER STUFF?
             }
