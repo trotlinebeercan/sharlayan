@@ -17,7 +17,7 @@ namespace Sharlayan {
 
     public static partial class Reader {
         public static bool CanGetPlayerInfo() {
-            var canRead = Scanner.Instance.Locations.ContainsKey(Signatures.CharacterMapKey) && Scanner.Instance.Locations.ContainsKey(Signatures.PlayerInformationKey);
+            var canRead = Scanner.Instance.Locations.ContainsKey(Signatures.PlayerInformationKey);
             if (canRead) {
                 // OTHER STUFF?
             }
@@ -74,6 +74,7 @@ namespace Sharlayan {
             }
             catch (Exception ex) {
                 MemoryHandler.Instance.RaiseException(Logger, ex, true);
+				Console.WriteLine(ex.StackTrace);
             }
 
             return result;

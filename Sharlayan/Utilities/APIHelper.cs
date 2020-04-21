@@ -48,7 +48,7 @@ namespace Sharlayan.Utilities {
 			}
 		}
 
-		public static IEnumerable<Signature> GetSignatures(ProcessModel processModel, string patchVersion = "latest") {
+		public static IEnumerable<Signature> GetSignatures() {
 			var filename = "signatures.json";
 			var file = Path.Combine(Sharlayan.Reader.JsonPath, filename);
 			if(File.Exists(file) && MemoryHandler.Instance.UseLocalCache) {

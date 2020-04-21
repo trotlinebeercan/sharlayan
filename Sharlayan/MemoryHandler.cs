@@ -272,7 +272,7 @@ namespace Sharlayan {
             this.GetProcessModules();
 
             Scanner.Instance.Locations.Clear();
-            Scanner.Instance.LoadOffsets(Signatures.Resolve(processModel, patchVersion), scanAllMemoryRegions);
+            Scanner.Instance.LoadOffsets(Signatures.Resolve(), scanAllMemoryRegions);
         }
 
         public void UnsetProcess() {

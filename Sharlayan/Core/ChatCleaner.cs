@@ -163,6 +163,7 @@ namespace Sharlayan.Core {
                 cleaned = Regex.Replace(cleaned, @"\[+0([12])010101([\w]+)?\]+", string.Empty);
                 cleaned = Regex.Replace(cleaned, @"\[+CF010101([\w]+)?\]+", string.Empty);
                 cleaned = Regex.Replace(cleaned, @"\[+..FF\w{6}\]+|\[+EC\]+", string.Empty);
+                cleaned = Regex.Replace(cleaned, @"\u001f", ":");
                 cleaned = Regex.Replace(cleaned, @"\[\]+", string.Empty);
 
                 line = cleaned;

@@ -57,8 +57,8 @@ namespace Sharlayan {
 
 		public const string WorldKey = "WORLD";
 
-		public static IEnumerable<Signature> Resolve(ProcessModel processModel, string patchVersion = "latest") {
-            return APIHelper.GetSignatures(processModel, patchVersion);
+		public static IEnumerable<Signature> Resolve() {
+            return APIHelper.GetSignatures();
         }
     }
 }
