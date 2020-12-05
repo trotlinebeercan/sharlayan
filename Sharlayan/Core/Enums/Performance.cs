@@ -39,6 +39,10 @@ namespace Sharlayan.Core.Enums {
 			Tuba = 17,
 			Horn = 18,
 			Saxophone = 19,
+			Violin = 20,
+			Viola = 21,
+			Cello = 22,
+			DoubleBass = 23
 		}
 	}
 }
