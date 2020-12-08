@@ -40,7 +40,7 @@ namespace Sharlayan {
             try {
 				var PerformanceStatusMap = (IntPtr) Scanner.Instance.Locations[Signatures.PerformanceStatusKey];
 
-				int entrySize = 12;
+				int entrySize = 20;
 				int numEntries = 99;
 				byte[] performanceData = MemoryHandler.Instance.GetByteArray(Scanner.Instance.Locations[Signatures.PerformanceStatusKey], entrySize * numEntries);
 
@@ -49,10 +49,10 @@ namespace Sharlayan {
 
 					float animation = BitConverter.TryToSingle(performanceData, offset+0);
 					byte id = performanceData[offset + 4];
-					byte unknown1 = performanceData[offset + 5];
+					byte unknown1 = performanceData[offset + 5]; // No clue
 					byte variant = performanceData[offset + 6]; // Animation (hand to left or right)
 					byte type = performanceData[offset + 7];
-					byte status = performanceData[offset + 8];
+					byte status = performanceData[offset + 8]; // 06 - holding
 					byte instrument = performanceData[offset + 9];
 					int unknown2 = BitConverter.TryToInt16(performanceData, offset + 10);
 
